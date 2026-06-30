@@ -93,6 +93,19 @@ export default function ContactPage() {
                     github.com/dauphaiduy
                   </a>
                 </div>
+                <div>
+                  <p className="text-xs text-white/35 uppercase tracking-widest mb-2">
+                    LinkedIn
+                  </p>
+                  <a
+                    href={profile.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-sm sm:text-base text-white/75 hover:text-orange-300 transition break-all font-mono"
+                  >
+                    linkedin.com/in/duy-nguyễn-khánh
+                  </a>
+                </div>
 
                 <div>
                   <p className="text-xs text-white/35 uppercase tracking-widest mb-2">

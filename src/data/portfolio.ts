@@ -5,6 +5,7 @@ export const profile = {
   email: "nguyenkhanhduy.work@gmail.com",
   phone: "(+84) 81 825 8855",
   github: "https://github.com/dauphaiduy",
+  linkedin: "https://www.linkedin.com/in/duy-nguyễn-khánh-5b9b2130a",
   summary:
     "Software Engineer with 3+ years of experience in fintech and banking, building reliable services, event-driven integrations, and large-scale data processing systems.",
   availability:
