@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import { projects, stats } from "@/data/portfolio";
+import { projects } from "@/data/portfolio";
 
 export default function ProjectsPage() {
   const featuredProject = projects[0];
