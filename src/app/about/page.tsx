@@ -53,7 +53,7 @@ export default function AboutPage() {
         </div>
 
         {/* Contact strip */}
-        <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-6 py-4 grid flex-wrap gap-6 items-center">
+        {/* <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-6 py-4 grid flex-wrap gap-6 items-center">
           <span className="text-xs text-white/30 uppercase tracking-widest font-semibold">
             Contact
           </span>
@@ -83,7 +83,7 @@ export default function AboutPage() {
           >
             GitHub &rarr;
           </a>
-        </div>
+        </div> */}
 
         {/* Skills */}
         <section>
