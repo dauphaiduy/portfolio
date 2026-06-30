@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MotionReveal } from "@/components/common/motion";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { projects } from "@/data/portfolio";
@@ -15,7 +16,7 @@ export default function ProjectsPage() {
         <section className="relative overflow-hidden border-b border-white/10 px-4 pt-28 pb-14">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_0%_100%,rgba(6,182,212,0.1),transparent)]" />
           <div className="relative max-w-7xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-end">
-            <div>
+            <MotionReveal>
               <p className="text-xs uppercase tracking-[0.35em] text-orange-400 mb-4 font-semibold">
                 Projects
               </p>
@@ -27,7 +28,7 @@ export default function ProjectsPage() {
                 services, event processing, payment integrations, scheduled
                 financial jobs, and multi-database workflows.
               </p>
-            </div>
+            </MotionReveal>
 
             {/* <div className="grid sm:grid-cols-3 lg:grid-cols-1 gap-3">
               {stats.map((stat) => (
@@ -48,7 +49,7 @@ export default function ProjectsPage() {
         </section>
 
         <section className="max-w-7xl w-full mx-auto px-4 py-14 space-y-14">
-          <div className="flex flex-wrap gap-2">
+          <MotionReveal className="flex flex-wrap gap-2" y={18}>
             {projectTypes.map((type) => (
               <span
                 key={type}
@@ -57,9 +58,10 @@ export default function ProjectsPage() {
                 {type}
               </span>
             ))}
-          </div>
+          </MotionReveal>
 
           {featuredProject && (
+            <MotionReveal hover>
             <Link
               href={`/projects/${featuredProject.slug}`}
               className="group block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden hover:border-cyan-400/50 hover:shadow-[0_0_28px_rgba(6,182,212,0.18)] transition-all"
@@ -113,22 +115,29 @@ export default function ProjectsPage() {
                 </div>
               </div>
             </Link>
+            </MotionReveal>
           )}
 
           <section>
-            <div className="flex items-center gap-3 mb-8">
+            <MotionReveal className="flex items-center gap-3 mb-8" y={18}>
               <span className="block w-1 h-6 bg-orange-400 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
               <h2 className="text-xl font-bold text-white uppercase tracking-widest">
                 Project Index
               </h2>
-            </div>
+            </MotionReveal>
 
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
               {otherProjects.map((project, index) => (
-                <Link
+                <MotionReveal
                   key={project.slug}
+                  className="h-full"
+                  delay={(index % 3) * 0.06}
+                  y={22}
+                  hover
+                >
+                <Link
                   href={`/projects/${project.slug}`}
-                  className="group rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-cyan-400/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.16)] transition-all relative overflow-hidden"
+                  className="group rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-cyan-400/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.16)] transition-all relative overflow-hidden h-full block"
                 >
                   <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-orange-400/60 via-orange-300/20 to-transparent" />
                   <div className="flex items-start justify-between gap-4 mb-5">
@@ -172,6 +181,7 @@ export default function ProjectsPage() {
                     )}
                   </div>
                 </Link>
+                </MotionReveal>
               ))}
             </div>
           </section>

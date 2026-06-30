@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { MotionReveal } from "@/components/common/motion";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import {
@@ -32,41 +33,47 @@ export default function HomePage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover motion-hero-zoom"
           />
           <div className="absolute inset-0 bg-[#0d0d1a]/45" />
           <div
-            className="absolute inset-0 opacity-[0.05]"
+            className="absolute inset-0 opacity-[0.05] motion-grid-drift"
             style={{
               backgroundImage:
                 "linear-gradient(cyan 1px, transparent 1px), linear-gradient(90deg, cyan 1px, transparent 1px)",
               backgroundSize: "48px 48px",
             }}
           />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_10%_90%,rgba(6,182,212,0.18),transparent)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_10%_90%,rgba(6,182,212,0.18),transparent)] motion-soft-float" />
 
           <div className="relative flex flex-col justify-end pb-16 px-8 md:px-16 max-w-3xl z-10">
-            <div className="flex items-center gap-3 mb-5">
+            <MotionReveal className="flex items-center gap-3 mb-5" delay={0.05} y={18}>
               <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-xs text-green-400 font-semibold tracking-widest uppercase">Available for hire</span>
               </span>
               <span className="text-xs text-white/30 tracking-wider">{profile.location}</span>
-            </div>
-            <p className="text-sm font-bold text-white/50 tracking-[0.25em] uppercase mb-2">{profile.name}</p>
-            <p className="text-xs uppercase tracking-[0.35em] text-orange-400 mb-4 font-semibold">
-              {profile.role}
-            </p>
-            <h1 className="text-4xl sm:text-6xl font-extrabold mb-5 leading-tight text-white">
-              Building reliable backend systems for{" "}
-              <span className="text-orange-300 drop-shadow-[0_0_24px_rgba(6,182,212,0.7)]">
-                fintech and banking teams
-              </span>
-            </h1>
-            <p className="text-white/60 text-lg sm:text-xl mb-10 max-w-2xl">
-              {profile.summary}
-            </p>
-            <div className="flex flex-wrap gap-4">
+            </MotionReveal>
+            <MotionReveal delay={0.14} y={18}>
+              <p className="text-sm font-bold text-white/50 tracking-[0.25em] uppercase mb-2">{profile.name}</p>
+              <p className="text-xs uppercase tracking-[0.35em] text-orange-400 mb-4 font-semibold">
+                {profile.role}
+              </p>
+            </MotionReveal>
+            <MotionReveal delay={0.23} y={26}>
+              <h1 className="text-4xl sm:text-6xl font-extrabold mb-5 leading-tight text-white">
+                Building reliable backend systems for{" "}
+                <span className="text-orange-300 drop-shadow-[0_0_24px_rgba(6,182,212,0.7)]">
+                  fintech and banking teams
+                </span>
+              </h1>
+            </MotionReveal>
+            <MotionReveal delay={0.32} y={24}>
+              <p className="text-white/60 text-lg sm:text-xl mb-10 max-w-2xl">
+                {profile.summary}
+              </p>
+            </MotionReveal>
+            <MotionReveal className="flex flex-wrap gap-4" delay={0.41} y={20}>
               <Link
                 href="/projects"
                 className="inline-block bg-orange-500 text-white font-semibold px-10 py-3.5 rounded-lg shadow-[0_0_24px_rgba(6,182,212,0.5)] hover:bg-orange-400 hover:shadow-[0_0_36px_rgba(6,182,212,0.7)] transition-all duration-200 uppercase tracking-widest text-sm"
@@ -79,7 +86,7 @@ export default function HomePage() {
               >
                 Contact
               </Link>
-            </div>
+            </MotionReveal>
           </div>
 
           <div className="hidden md:flex flex-1 relative" />
@@ -89,14 +96,17 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,13,26,0)_0%,#0d0d1a_8%,#0d0d1a_100%)]" />
           <div className="absolute inset-x-0 top-24 h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
           <div className="absolute left-1/2 top-0 bottom-0 hidden w-px bg-linear-to-b from-cyan-300/0 via-cyan-300/15 to-cyan-300/0 lg:block" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_10%_20%,rgba(6,182,212,0.08),transparent),radial-gradient(ellipse_55%_55%_at_90%_70%,rgba(251,146,60,0.07),transparent)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_10%_20%,rgba(6,182,212,0.08),transparent),radial-gradient(ellipse_55%_55%_at_90%_70%,rgba(251,146,60,0.07),transparent)] motion-soft-float" />
 
           <div className="relative max-w-7xl mx-auto mt-10">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {stats.map((stat, index) => (
-                <div
+                <MotionReveal
                   key={stat.label}
-                  className="rounded-xl border border-white/10 bg-[#111122]/85 backdrop-blur-md p-5 relative overflow-hidden shadow-[0_18px_50px_rgba(0,0,0,0.22)]"
+                  className="rounded-xl border border-white/10 bg-[#111122]/85 backdrop-blur-md p-5 relative overflow-hidden shadow-[0_18px_50px_rgba(0,0,0,0.22)] motion-scan-line"
+                  delay={index * 0.08}
+                  y={22}
+                  hover
                 >
                   <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-orange-400/70 via-cyan-300/30 to-transparent" />
                   <div className="flex items-start justify-between gap-4">
@@ -112,13 +122,13 @@ export default function HomePage() {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
-                </div>
+                </MotionReveal>
               ))}
             </div>
 
             <div className="mt-14 space-y-16">
               <section className="relative">
-                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-8">
+                <MotionReveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-8">
                   <div>
                     <div className="flex items-center gap-3 mb-3">
                       <span className="block w-1 h-6 bg-orange-400 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
@@ -137,14 +147,15 @@ export default function HomePage() {
                   >
                     View all
                   </Link>
-                </div>
+                </MotionReveal>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   {projects.slice(0, 3).map((project, i) => (
+                    <MotionReveal key={project.slug} delay={i * 0.08} hover className="h-full">
                     <Link
                       key={project.slug}
                       href={`/projects/${project.slug}`}
-                      className="rounded-xl border border-white/10 bg-white/[0.045] backdrop-blur-sm overflow-hidden hover:border-cyan-400/50 hover:shadow-[0_0_24px_rgba(6,182,212,0.18)] transition-all duration-200 group flex flex-col"
+                      className="rounded-xl border border-white/10 bg-white/[0.045] backdrop-blur-sm overflow-hidden hover:border-cyan-400/50 hover:shadow-[0_0_24px_rgba(6,182,212,0.18)] transition-all duration-200 group flex flex-col h-full"
                     >
                       <div className="relative h-44 bg-white/5 overflow-hidden">
                         <video
@@ -184,10 +195,12 @@ export default function HomePage() {
                         </div>
                       </div>
                     </Link>
+                    </MotionReveal>
                   ))}
                 </div>
               </section>
 
+              <MotionReveal>
               <section className="relative rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-7 md:p-8 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_20%_0%,rgba(6,182,212,0.09),transparent)]" />
                 <div className="relative">
@@ -207,9 +220,12 @@ export default function HomePage() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       {capabilities.map((capability) => (
-                        <div
+                        <MotionReveal
                           key={capability.title}
                           className="rounded-xl border border-white/10 bg-[#0d0d1a]/45 p-5"
+                          delay={0.05}
+                          y={18}
+                          hover
                         >
                           <p className="text-sm font-bold text-orange-300 uppercase tracking-widest mb-3">
                             {capability.title}
@@ -217,7 +233,7 @@ export default function HomePage() {
                           <p className="text-sm text-white/55 leading-6">
                             {capability.description}
                           </p>
-                        </div>
+                        </MotionReveal>
                       ))}
                     </div>
                   </div>
@@ -240,9 +256,12 @@ export default function HomePage() {
 
                     <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
                       {techStack.map((group, index) => (
-                        <div
+                        <MotionReveal
                           key={group.category}
                           className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0d0d1a]/50 p-5 hover:border-cyan-400/40 hover:bg-[#0d0d1a]/70 hover:shadow-[0_0_22px_rgba(6,182,212,0.12)] transition-all"
+                          delay={index * 0.05}
+                          y={18}
+                          hover
                         >
                           <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-orange-400/70 via-cyan-300/30 to-transparent" />
                           <div className="flex items-start justify-between gap-4 mb-5">
@@ -273,25 +292,28 @@ export default function HomePage() {
                               </span>
                             ))}
                           </div>
-                        </div>
+                        </MotionReveal>
                       ))}
                     </div>
                   </div>
                 </div>
               </section>
+              </MotionReveal>
 
               <section className="relative">
-                <div className="flex items-center gap-3 mb-8">
+                <MotionReveal className="flex items-center gap-3 mb-8">
                   <span className="block w-1 h-6 bg-orange-400 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
                   <h2 className="text-xl font-bold text-white uppercase tracking-widest">
                     Experience
                   </h2>
-                </div>
+                </MotionReveal>
                 <div className="space-y-4">
                   {experience.map((item, index) => (
-                    <div
+                    <MotionReveal
                       key={`${item.role}-${item.company}`}
                       className="rounded-xl border border-white/10 bg-white/[0.045] backdrop-blur-sm p-6 relative overflow-hidden"
+                      delay={index * 0.06}
+                      y={20}
                     >
                       <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-linear-to-b from-orange-400/60 to-transparent rounded-l-xl" />
                       <div className="flex flex-col sm:flex-row sm:items-start sm:gap-8">
@@ -313,7 +335,7 @@ export default function HomePage() {
                           {String(experience.length - index).padStart(2, "0")}
                         </span>
                       </div>
-                    </div>
+                    </MotionReveal>
                   ))}
                 </div>
               </section>

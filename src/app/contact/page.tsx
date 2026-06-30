@@ -1,5 +1,6 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import { MotionReveal } from "@/components/common/motion";
 import { capabilities, profile, stats, techStack } from "@/data/portfolio";
 
 export default function ContactPage() {
@@ -13,7 +14,7 @@ export default function ContactPage() {
         <section className="relative overflow-hidden border-b border-white/10 px-4 pt-28 pb-14">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_0%_100%,rgba(6,182,212,0.1),transparent)]" />
           <div className="relative max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-end">
-            <div>
+            <MotionReveal>
               <p className="text-xs uppercase tracking-[0.35em] text-orange-400 mb-4 font-semibold">
                 Contact
               </p>
@@ -25,13 +26,16 @@ export default function ContactPage() {
                 fintech platforms, event-driven services, data workflows, and
                 production-grade integrations.
               </p>
-            </div>
+            </MotionReveal>
 
             <div className="grid sm:grid-cols-3 lg:grid-cols-1 gap-3">
-              {stats.map((stat) => (
-                <div
+              {stats.map((stat, index) => (
+                <MotionReveal
                   key={stat.label}
                   className="rounded-xl border border-white/10 bg-white/5 px-5 py-4"
+                  delay={index * 0.08}
+                  y={18}
+                  hover
                 >
                   <p className="text-2xl font-bold text-orange-300 font-mono">
                     {stat.value}
@@ -39,7 +43,7 @@ export default function ContactPage() {
                   <p className="text-xs uppercase tracking-widest text-white/40 mt-1">
                     {stat.label}
                   </p>
-                </div>
+                </MotionReveal>
               ))}
             </div>
           </div>
@@ -47,7 +51,10 @@ export default function ContactPage() {
 
         <section className="max-w-7xl w-full mx-auto px-4 py-14">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-8 items-start">
-            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8">
+            <MotionReveal
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8"
+              hover
+            >
               <div className="flex items-center gap-3 mb-6">
                 <span className="block w-1 h-6 bg-orange-400 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
                 <h2 className="text-xl font-bold text-white uppercase tracking-widest">
@@ -133,10 +140,13 @@ export default function ContactPage() {
                   View GitHub
                 </a>
               </div>
-            </div>
+            </MotionReveal>
 
             <div className="space-y-6">
-              <section className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8">
+              <MotionReveal
+                className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8"
+                delay={0.08}
+              >
                 <div className="flex items-center gap-3 mb-6">
                   <span className="block w-1 h-6 bg-orange-400 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
                   <h2 className="text-xl font-bold text-white uppercase tracking-widest">
@@ -144,20 +154,24 @@ export default function ContactPage() {
                   </h2>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {capabilities.map((capability) => (
-                    <div key={capability.title}>
+                  {capabilities.map((capability, index) => (
+                    <MotionReveal key={capability.title} delay={index * 0.04} y={16}>
                       <p className="text-sm font-bold text-orange-300 uppercase tracking-widest mb-2">
                         {capability.title}
                       </p>
                       <p className="text-sm text-white/55 leading-6">
                         {capability.description}
                       </p>
-                    </div>
+                    </MotionReveal>
                   ))}
                 </div>
-              </section>
+              </MotionReveal>
 
-              <section className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8">
+              <MotionReveal
+                className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8"
+                delay={0.14}
+                hover
+              >
                 <div className="flex items-center justify-between gap-4 mb-5">
                   <h2 className="text-sm font-bold text-white uppercase tracking-widest">
                     Primary Stack
@@ -176,7 +190,7 @@ export default function ContactPage() {
                     </span>
                   ))}
                 </div>
-              </section>
+              </MotionReveal>
             </div>
           </div>
         </section>
